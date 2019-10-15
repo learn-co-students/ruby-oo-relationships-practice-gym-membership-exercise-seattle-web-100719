@@ -22,13 +22,19 @@ class Lifter
       self.memberships.map{|membership| membership.gym}
   end
 
+  # def self.average_lift_total
+  #   total=0
+  #   @@all.each do |lifter|
+  #     total += lifter.lift_total.to_f
+  #   end
+  #   total/@@all.size.to_f
+  # end 
+
+
   def self.average_lift_total
-    total=0
-    @@all.each do |lifter|
-      total += lifter.lift_total.to_f
-    end
-    total/@@all.size.to_f
-  end 
+    @@all.sum{|lifter|  lifter.lift_total.to_f}/@@all.size.to_f
+  end
+
   
   def total_memberships_cost
     total=0
